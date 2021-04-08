@@ -7,8 +7,11 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route path ="/">
+          <Route exact path ="/">
             <LogIn />
+          </Route>
+          <Route path ="/register">
+            <Register />
           </Route>
         </Switch>
       </div>
