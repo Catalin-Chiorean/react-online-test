@@ -42,10 +42,10 @@ export default function LogIn() {
     setEmailError(false)
     setPasswordError(false)
 
-    if(email === '') {
+    if (email === '') {
       setEmailError(true)
     }
-    if(password === '') {
+    if (password === '') {
       setPasswordError(true)
     }
     if (email && password) {
@@ -58,7 +58,7 @@ export default function LogIn() {
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-            <LockIcon />
+          <LockIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
           Login
