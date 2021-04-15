@@ -3,13 +3,12 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-//import Link from '@material-ui/core/Link';
+import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import LockIcon from '@material-ui/icons/Lock';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -50,9 +49,7 @@ export default function Register() {
             margin="normal"
             required
             fullWidth
-            id="email"
             label="Email Address"
-            name="email"
             autoComplete="email"
             autoFocus
           />
@@ -61,10 +58,8 @@ export default function Register() {
             margin="normal"
             required
             fullWidth
-            name="password"
             label="Password"
             type="password"
-            id="password"
             autoComplete="current-password"
           />
           <TextField
@@ -72,10 +67,8 @@ export default function Register() {
             margin="normal"
             required
             fullWidth
-            name="confirm-password"
             label="Confirm Password"
             type="password"
-            id="confirm-password"
             autoComplete="current-password"
           />
           <Button
@@ -88,7 +81,7 @@ export default function Register() {
             Register
           </Button>
             <Grid item>
-              <Link to="/" variant="body2">
+              <Link href="/" variant="body2">
                 {"Already have an account? Login"}
               </Link>
             </Grid>
