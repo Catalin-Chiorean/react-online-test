@@ -9,6 +9,7 @@ import LockIcon from '@material-ui/icons/Lock';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -36,17 +37,21 @@ export default function LogIn() {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
+  const [helperText, setHelperText] = useState('');
 
   const handleLogIn = (e) => {
     e.preventDefault();
     setEmailError(false);
     setPasswordError(false);
+    setHelperText('')
 
     if (email === '') {
       setEmailError(true);
+      setHelperText('Please enter email')
     }
     if (password === '') {
       setPasswordError(true);
+      setHelperText('Please enter password')
     }
     if (email && password) {
       console.log(email, password);
@@ -86,6 +91,9 @@ export default function LogIn() {
             autoComplete="current-password"
             error={passwordError}
           />
+          <FormHelperText>
+            {helperText}
+          </FormHelperText>
           <Button
             type="submit"
             fullWidth
