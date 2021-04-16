@@ -60,8 +60,8 @@ export default function Register() {
       //console.log(email, password, confirmPassword)
       fetch('http://localhost:3001/users', {
         method: 'POST',
-        headers: {"Content-type": "application/json"},
-        body: JSON.stringify({email, password})
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({ email, password })
       }).then(() => history.push('/'));
     }
   }

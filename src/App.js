@@ -1,7 +1,8 @@
 import LogIn from './pages/LogIn';
 import Register from './pages/Register';
 import Users from './pages/Users';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Welcome from './pages/Welcome'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core'
 
 function App() {
@@ -15,14 +16,17 @@ function App() {
       <Router>
         <div className="App">
           <Switch>
-            <Route exact path ="/">
+            <Route exact path="/">
               <LogIn />
             </Route>
-            <Route path ="/register">
+            <Route path="/register">
               <Register />
             </Route>
-            <Route path ="/users">
+            <Route path="/users">
               <Users />
+            </Route>
+            <Route path="/welcome">
+              <Welcome />
             </Route>
           </Switch>
         </div>
