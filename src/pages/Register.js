@@ -9,6 +9,7 @@ import LockIcon from '@material-ui/icons/Lock';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { useHistory } from 'react-router';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -31,31 +32,37 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Register() {
   const classes = useStyles();
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
-  const [emailError, setEmailError] = useState(false)
-  const [passwordError, setPasswordError] = useState(false)
-  const [confirmPasswordError, setConfirmPasswordError] = useState(false)
+  const history = useHistory();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [confirmPasswordError, setConfirmPasswordError] = useState(false);
 
   const handleRegister = (e) => {
-    e.preventDefault()
-    setEmailError(false)
-    setPasswordError(false)
-    setConfirmPasswordError(false)
+    e.preventDefault();
+    setEmailError(false);
+    setPasswordError(false);
+    setConfirmPasswordError(false);
 
     if (email === '') {
-      setEmailError(true)
+      setEmailError(true);
     }
     if (password === '') {
-      setPasswordError(true)
+      setPasswordError(true);
     }
     if (confirmPassword === '' || confirmPassword !== password) {
-      setConfirmPasswordError(true)
+      setConfirmPasswordError(true);
     }
 
     if (email && password && confirmPassword && confirmPassword === password) {
-      console.log(email, password, confirmPassword)
+      //console.log(email, password, confirmPassword)
+      fetch('http://localhost:3001/users', {
+        method: 'POST',
+        headers: {"Content-type": "application/json"},
+        body: JSON.stringify({email, password})
+      }).then(() => history.push('/'));
     }
   }
 

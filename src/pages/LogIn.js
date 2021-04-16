@@ -31,25 +31,25 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function LogIn() {
-  const classes = useStyles()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [emailError, setEmailError] = useState(false)
-  const [passwordError, setPasswordError] = useState(false)
+  const classes = useStyles();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
 
   const handleLogIn = (e) => {
-    e.preventDefault()
-    setEmailError(false)
-    setPasswordError(false)
+    e.preventDefault();
+    setEmailError(false);
+    setPasswordError(false);
 
     if (email === '') {
-      setEmailError(true)
+      setEmailError(true);
     }
     if (password === '') {
-      setPasswordError(true)
+      setPasswordError(true);
     }
     if (email && password) {
-      console.log(email, password)
+      console.log(email, password);
     }
   }
 
