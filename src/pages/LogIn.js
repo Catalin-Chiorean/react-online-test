@@ -10,6 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import FormHelperText from '@material-ui/core/FormHelperText';
+import { useHistory } from 'react-router';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -33,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LogIn() {
   const classes = useStyles();
+  const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState(false);
@@ -55,6 +58,14 @@ export default function LogIn() {
     }
     if (email && password) {
       console.log(email, password);
+      axios.post('http://localhost:3001/login/', {email, password})
+      .then(res => {
+        console.log(res)
+      })
+      .then(() => history.push('/welcome'))
+      .catch(err => {
+        console.log(err)
+      })
     }
   }
 

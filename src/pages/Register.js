@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { useHistory } from 'react-router';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -57,12 +58,14 @@ export default function Register() {
     }
 
     if (email && password && confirmPassword && confirmPassword === password) {
-      //console.log(email, password, confirmPassword)
-      fetch('http://localhost:3001/users', {
-        method: 'POST',
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify({ email, password })
-      }).then(() => history.push('/'));
+      axios.post('http://localhost:3001/register', {email, password})
+        .then(res => {
+          console.log(res)
+        })
+        .then(() => history.push('/'))
+        .catch(err => {
+          console.log(err)
+        })
     }
   }
 

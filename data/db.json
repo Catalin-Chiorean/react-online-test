@@ -9,6 +9,16 @@
       "id": 2,
       "email": "user",
       "password": "test"
+    },
+    {
+      "email": "new@a.gmail.com",
+      "password": "$2a$10$N7crOmg2c4G4760oalQ.N.2v3FToeHHovryGHv.nqjL6WXTHjR6Xe",
+      "id": 3
+    },
+    {
+      "email": "a@a.mail",
+      "password": "$2a$10$ir7eLS6VDXo2za4eUEg8XuLG5XaG8MbkFuaUsKxlwudLTRXoe/APi",
+      "id": 4
     }
   ]
 }
