@@ -1,7 +1,7 @@
 import LogIn from './pages/LogIn';
 import Register from './pages/Register';
 import Users from './pages/Users';
-import Welcome from './pages/Welcome'
+import Welcome from './pages/Welcome';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core'
 
