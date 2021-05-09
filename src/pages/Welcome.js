@@ -1,7 +1,5 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { Typography, Container, CssBaseline } from '@material-ui/core';
 
 export default function Welcome() {
   return (

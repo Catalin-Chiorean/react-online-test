@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
+import { Avatar, Button, Container, CssBaseline } from '@material-ui/core';
+import { TextField, Link, Grid, Typography } from '@material-ui/core';
 import LockIcon from '@material-ui/icons/Lock';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { useHistory } from 'react-router';
 import axios from 'axios';
@@ -36,11 +30,21 @@ const useStyles = makeStyles((theme) => ({
 export default function LogIn() {
   const classes = useStyles();
   const history = useHistory();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [emailError, setEmailError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
-  const [helperText, setHelperText] = useState('');
+  //const [email, setEmail] = useState('');
+  //const [password, setPassword] = useState('');
+  //const [emailError, setEmailError] = useState(false);
+  //const [passwordError, setPasswordError] = useState(false);
+  //const [helperText, setHelperText] = useState('');
+
+  const initialState = {
+    email: '',
+    password: '',
+    emailError: false,
+    passwordError: false,
+    helperText: ''
+  }
+  
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleLogIn = (e) => {
     e.preventDefault();
