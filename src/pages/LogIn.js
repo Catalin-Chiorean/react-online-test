@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import { Avatar, Button, Container, CssBaseline } from '@material-ui/core';
 import { TextField, Link, Grid, Typography } from '@material-ui/core';
 import LockIcon from '@material-ui/icons/Lock';
@@ -30,13 +30,8 @@ const useStyles = makeStyles((theme) => ({
 export default function LogIn() {
   const classes = useStyles();
   const history = useHistory();
-  //const [email, setEmail] = useState('');
-  //const [password, setPassword] = useState('');
-  //const [emailError, setEmailError] = useState(false);
-  //const [passwordError, setPasswordError] = useState(false);
-  //const [helperText, setHelperText] = useState('');
 
-  const initialState = {
+  const logInPage = {
     email: '',
     password: '',
     emailError: false,
@@ -44,25 +39,28 @@ export default function LogIn() {
     helperText: ''
   }
   
-  const [state, dispatch] = useReducer(reducer, initialState);
+  function reducer(_, newState) {
+    return newState;
+  }
+  
+  const [state, setValue] = useReducer(reducer, logInPage);
 
   const handleLogIn = (e) => {
     e.preventDefault();
-    setEmailError(false);
-    setPasswordError(false);
-    setHelperText('')
+    setValue({ emailError: false });
+    setValue({ passwordError: false})
+    setValue({ helperText: ''});
 
-    if (email === '') {
-      setEmailError(true);
-      setHelperText('Please enter email')
+    if (logInPage.email === '') {
+      setValue({ emailError: true});
+      setValue({ helperText: 'Please enter email'});
     }
-    if (password === '') {
-      setPasswordError(true);
-      setHelperText('Please enter password')
+    if (logInPage.password === '') {
+      setValue({ passwordError: true});
+      setValue({ helperText: 'Please enter password'});
     }
-    if (email && password) {
-      console.log(email, password);
-      axios.post('http://localhost:3001/login/', {email, password})
+    if (logInPage.email && logInPage.password) {
+      axios.post('http://localhost:3001/login/', logInPage.email, logInPage.password)
       .then(res => {
         console.log(res)
       })
@@ -85,7 +83,7 @@ export default function LogIn() {
         </Typography>
         <form className={classes.form} noValidate onSubmit={handleLogIn}>
           <TextField
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setValue({email: e.target.value})}
             variant="outlined"
             margin="normal"
             required
@@ -93,10 +91,10 @@ export default function LogIn() {
             label="Email Address"
             autoComplete="email"
             autoFocus
-            error={emailError}
+            error={logInPage.emailError}
           />
           <TextField
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setValue({passwordError: e.target.value})}
             variant="outlined"
             margin="normal"
             required
@@ -104,10 +102,10 @@ export default function LogIn() {
             label="Password"
             type="password"
             autoComplete="current-password"
-            error={passwordError}
+            error={logInPage.passwordError}
           />
           <FormHelperText>
-            {helperText}
+            {logInPage.helperText}
           </FormHelperText>
           <Button
             type="submit"
