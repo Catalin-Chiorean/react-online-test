@@ -3,6 +3,7 @@ import Register from './pages/Register';
 import Users from './pages/Users';
 import Welcome from './pages/Welcome';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { PrivateRoute } from './helpers/PrivateRoute';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core'
 
 function App() {
@@ -16,18 +17,10 @@ function App() {
       <Router>
         <div className="App">
           <Switch>
-            <Route exact path="/">
-              <Login />
-            </Route>
-            <Route path="/register">
-              <Register />
-            </Route>
-            <Route path="/users">
-              <Users />
-            </Route>
-            <Route path="/welcome">
-              <Welcome />
-            </Route>
+            <Route exact component={Login} path="/login" />
+            <Route exact component={Register} path="/register" />
+            <PrivateRoute exact component={Welcome} path="/" />
+            <PrivateRoute exact component={Users} path="/users" />
           </Switch>
         </div>
       </Router>
