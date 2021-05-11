@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function LogIn() {
+export default function Login() {
   const classes = useStyles();
   const history = useHistory();
   const [email, setEmail] = useState('');
@@ -36,7 +36,7 @@ export default function LogIn() {
   const [passwordError, setPasswordError] = useState(false);
   const [helperText, setHelperText] = useState('');
 
-  const handleLogIn = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     setEmailError(false);
     setPasswordError(false);
@@ -73,7 +73,7 @@ export default function LogIn() {
         <Typography component="h1" variant="h5">
           Login
         </Typography>
-        <form className={classes.form} noValidate onSubmit={handleLogIn}>
+        <form className={classes.form} noValidate onSubmit={handleLogin}>
           <TextField
             onChange={(e) => setEmail(e.target.value)}
             variant="outlined"

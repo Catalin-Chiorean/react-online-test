@@ -1,4 +1,4 @@
-import LogIn from './pages/LogIn';
+import Login from './pages/Login';
 import Register from './pages/Register';
 import Users from './pages/Users';
 import Welcome from './pages/Welcome';
@@ -17,7 +17,7 @@ function App() {
         <div className="App">
           <Switch>
             <Route exact path="/">
-              <LogIn />
+              <Login />
             </Route>
             <Route path="/register">
               <Register />
