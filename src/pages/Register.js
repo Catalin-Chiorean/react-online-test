@@ -28,24 +28,13 @@ const useStyles = makeStyles((theme) => ({
 export default function Register() {
   const classes = useStyles();
   const history = useHistory();
-  //const [email, setEmail] = useState('');
-  //const [password, setPassword] = useState('');
-  //const [confirmPassword, setConfirmPassword] = useState('');
-  //const [emailError, setEmailError] = useState(false);
-  //const [passwordError, setPasswordError] = useState(false);
-  //const [confirmPasswordError, setConfirmPasswordError] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [confirmPasswordError, setConfirmPasswordError] = useState(false);
 
-  const initialState = {
-    email: '',
-    password: '',
-    confirmPassword: '',
-    emailError: false,
-    passwordError: false,
-    confirmPasswordError: false
-  }
-  
-  const [state, dispatch] = useReducer(reducer, initialState);
-  
   const handleRegister = (e) => {
     e.preventDefault();
     setEmailError(false);

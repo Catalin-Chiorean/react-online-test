@@ -30,21 +30,11 @@ const useStyles = makeStyles((theme) => ({
 export default function LogIn() {
   const classes = useStyles();
   const history = useHistory();
-  //const [email, setEmail] = useState('');
-  //const [password, setPassword] = useState('');
-  //const [emailError, setEmailError] = useState(false);
-  //const [passwordError, setPasswordError] = useState(false);
-  //const [helperText, setHelperText] = useState('');
-
-  const initialState = {
-    email: '',
-    password: '',
-    emailError: false,
-    passwordError: false,
-    helperText: ''
-  }
-  
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [helperText, setHelperText] = useState('');
 
   const handleLogIn = (e) => {
     e.preventDefault();
