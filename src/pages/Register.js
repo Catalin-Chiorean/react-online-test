@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { userSelector } from '../redux/UserSlice';
+import { signupUser, userSelector, clearState } from '../redux/UserSlice';
 import toast from 'react-hot-toast';
 
 const useStyles = makeStyles((theme) => ({
@@ -40,23 +40,23 @@ export default function Register() {
   );
 
   const onSubmit = (data) => {
-    //dispatch(signupUser(data));
+    dispatch(signupUser(data));
   };
   useEffect(() => {
     return () => {
-      //dispatch(clearState());
+      dispatch(clearState());
     };
   }, []);
 
   useEffect(() => {
     if (isSuccess) {
-      //dispatch(clearState());
+      dispatch(clearState());
       history.push('/');
     }
 
     if (isError) {
       toast.error(errorMessage);
-      //dispatch(clearState());
+      dispatch(clearState());
     }
   }, [isSuccess, isError]);
 
