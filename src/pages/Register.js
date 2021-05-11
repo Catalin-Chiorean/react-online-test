@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { Avatar, Button, Container, CssBaseline } from '@material-ui/core';
 import { TextField, Link, Grid, Typography } from '@material-ui/core';
 import LockIcon from '@material-ui/icons/Lock';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router';
-import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import { userSelector } from '../redux/UserSlice';
+import toast from 'react-hot-toast';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -28,40 +31,34 @@ const useStyles = makeStyles((theme) => ({
 export default function Register() {
   const classes = useStyles();
   const history = useHistory();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [emailError, setEmailError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
-  const [confirmPasswordError, setConfirmPasswordError] = useState(false);
+  const dispatch = useDispatch();
 
-  const handleRegister = (e) => {
-    e.preventDefault();
-    setEmailError(false);
-    setPasswordError(false);
-    setConfirmPasswordError(false);
+  const { handleSubmit } = useForm();
 
-    if (email === '') {
-      setEmailError(true);
-    }
-    if (password === '') {
-      setPasswordError(true);
-    }
-    if (confirmPassword === '' || confirmPassword !== password) {
-      setConfirmPasswordError(true);
+  const { isFetching, isSuccess, isError, errorMessage } = useSelector(
+    userSelector
+  );
+
+  const onSubmit = (data) => {
+    //dispatch(signupUser(data));
+  };
+  useEffect(() => {
+    return () => {
+      //dispatch(clearState());
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isSuccess) {
+      //dispatch(clearState());
+      history.push('/');
     }
 
-    if (email && password && confirmPassword && confirmPassword === password) {
-      axios.post('http://localhost:3001/register', {email, password})
-        .then(res => {
-          console.log(res)
-        })
-        .then(() => history.push('/'))
-        .catch(err => {
-          console.log(err)
-        })
+    if (isError) {
+      toast.error(errorMessage);
+      //dispatch(clearState());
     }
-  }
+  }, [isSuccess, isError]);
 
   return (
     <Container component="main" maxWidth="xs">
@@ -73,39 +70,34 @@ export default function Register() {
         <Typography component="h1" variant="h5">
           Register
         </Typography>
-        <form className={classes.form} noValidate onSubmit={handleRegister}>
+        <form
+          className={classes.form}
+          //noValidate
+          onSubmit={handleSubmit(onSubmit)}
+          method="POST"
+        >
           <TextField
-            onChange={(e) => setEmail(e.target.value)}
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
+            id="email"
+            name="email"
+            type="email"
             label="Email Address"
+            variant="outlined"
+            margin="normal"
             autoComplete="email"
+            required
+            fullWidth
             autoFocus
-            error={emailError}
           />
           <TextField
-            onChange={(e) => setPassword(e.target.value)}
+            id="password"
+            name="password"
+            type="password"
             variant="outlined"
             margin="normal"
-            required
-            fullWidth
             label="Password"
-            type="password"
             autoComplete="current-password"
-            error={passwordError}
-          />
-          <TextField
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            variant="outlined"
-            margin="normal"
             required
             fullWidth
-            label="Confirm Password"
-            type="password"
-            autoComplete="current-password"
-            error={confirmPasswordError}
           />
           <Button
             type="submit"
