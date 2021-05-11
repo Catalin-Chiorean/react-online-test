@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useState } from 'react';
 import { Avatar, Button, Container, CssBaseline } from '@material-ui/core';
 import { TextField, Link, Grid, Typography } from '@material-ui/core';
 import LockIcon from '@material-ui/icons/Lock';
@@ -28,8 +28,14 @@ const useStyles = makeStyles((theme) => ({
 export default function Register() {
   const classes = useStyles();
   const history = useHistory();
+  //const [email, setEmail] = useState('');
+  //const [password, setPassword] = useState('');
+  //const [confirmPassword, setConfirmPassword] = useState('');
+  //const [emailError, setEmailError] = useState(false);
+  //const [passwordError, setPasswordError] = useState(false);
+  //const [confirmPasswordError, setConfirmPasswordError] = useState(false);
 
-  const registerPage = {
+  const initialState = {
     email: '',
     password: '',
     confirmPassword: '',
@@ -37,34 +43,27 @@ export default function Register() {
     passwordError: false,
     confirmPasswordError: false
   }
-
-  function reducer(_, newState) {
-    return newState;
-  }
   
-  const [state, setValue] = useReducer(reducer, registerPage);
+  const [state, dispatch] = useReducer(reducer, initialState);
   
   const handleRegister = (e) => {
     e.preventDefault();
-    setValue({ emailError: false });
-    setValue({ passwordError: false });
-    setValue({ confirmPasswordError: false });
+    setEmailError(false);
+    setPasswordError(false);
+    setConfirmPasswordError(false);
 
-    if (registerPage.email === '') {
-      setValue({ emailError: true});
+    if (email === '') {
+      setEmailError(true);
     }
-    if (registerPage.password === '') {
-      setValue({ passwordError: true });
+    if (password === '') {
+      setPasswordError(true);
     }
-    if (registerPage.confirmPassword === '' 
-        || registerPage.confirmPassword !== registerPage.password) {
-      setValue({ passwordError: true});
+    if (confirmPassword === '' || confirmPassword !== password) {
+      setConfirmPasswordError(true);
     }
 
-    if (registerPage.email
-      && registerPage.password 
-      && registerPage.confirmPassword === registerPage.password) {
-      axios.post('http://localhost:3001/register', registerPage.email, registerPage.password)
+    if (email && password && confirmPassword && confirmPassword === password) {
+      axios.post('http://localhost:3001/register', {email, password})
         .then(res => {
           console.log(res)
         })
@@ -87,7 +86,7 @@ export default function Register() {
         </Typography>
         <form className={classes.form} noValidate onSubmit={handleRegister}>
           <TextField
-            onChange={(e) => setValue({email: e.target.value})}
+            onChange={(e) => setEmail(e.target.value)}
             variant="outlined"
             margin="normal"
             required
@@ -95,10 +94,10 @@ export default function Register() {
             label="Email Address"
             autoComplete="email"
             autoFocus
-            error={registerPage.emailError}
+            error={emailError}
           />
           <TextField
-            onChange={(e) => setValue({password: e.target.value})}
+            onChange={(e) => setPassword(e.target.value)}
             variant="outlined"
             margin="normal"
             required
@@ -106,10 +105,10 @@ export default function Register() {
             label="Password"
             type="password"
             autoComplete="current-password"
-            error={registerPage.passwordError}
+            error={passwordError}
           />
           <TextField
-            onChange={(e) => setValue({confirmPassword: e.target.value})}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             variant="outlined"
             margin="normal"
             required
@@ -117,7 +116,7 @@ export default function Register() {
             label="Confirm Password"
             type="password"
             autoComplete="current-password"
-            error={registerPage.confirmPasswordError}
+            error={confirmPasswordError}
           />
           <Button
             type="submit"
