@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import store from './redux/store';
 import { Provider } from 'react-redux';
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 
 ReactDOM.render(
   <React.StrictMode>

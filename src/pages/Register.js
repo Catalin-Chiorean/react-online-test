@@ -29,25 +29,26 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Register() {
+
   const classes = useStyles();
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const { handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm();
 
-  const {isSuccess, isError, errorMessage } = useSelector(
+  const { isSuccess, isError, errorMessage } = useSelector(
     userSelector
   );
 
   const onSubmit = (data) => {
     dispatch(signupUser(data));
   };
-  
+
   useEffect(() => {
     return () => {
       dispatch(clearState());
     };
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (isSuccess) {
@@ -59,7 +60,7 @@ export default function Register() {
       toast.error(errorMessage);
       dispatch(clearState());
     }
-  }, [isSuccess, isError]);
+  }, [isSuccess, isError, dispatch, history, errorMessage]);
 
   return (
     <Container component="main" maxWidth="xs">
@@ -86,6 +87,7 @@ export default function Register() {
             margin="normal"
             autoComplete="username"
             required
+            {...register('name', { required: true })}
             fullWidth
             autoFocus
           />
@@ -98,6 +100,9 @@ export default function Register() {
             margin="normal"
             autoComplete="email"
             required
+            {...register('email', {
+              pattern: /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/i,
+            })}
             fullWidth
           />
           <TextField
@@ -109,6 +114,7 @@ export default function Register() {
             label="Password"
             autoComplete="current-password"
             required
+            {...register('password', { required: true })}
             fullWidth
           />
           <Button

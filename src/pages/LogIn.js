@@ -4,10 +4,10 @@ import { TextField, Link, Grid, Typography } from '@material-ui/core';
 import LockIcon from '@material-ui/icons/Lock';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router';
-import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
 import { loginUser, userSelector, clearState } from '../redux/UserSlice';
 import toast from 'react-hot-toast';
+import { useForm } from 'react-hook-form';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -30,14 +30,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Login() {
+
   const classes = useStyles();
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const { handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm();
+
   const { isSuccess, isError, errorMessage } = useSelector(
     userSelector
   );
+  
   const onSubmit = (data) => {
     dispatch(loginUser(data));
   };
@@ -46,7 +49,7 @@ export default function Login() {
     return () => {
       dispatch(clearState());
     };
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (isError) {
@@ -58,7 +61,7 @@ export default function Login() {
       dispatch(clearState());
       history.push('/');
     }
-  }, [isError, isSuccess]);
+  }, [isError, isSuccess, dispatch, history, errorMessage]);
 
   return (
     <Container component="main" maxWidth="xs">
@@ -70,8 +73,8 @@ export default function Login() {
         <Typography component="h1" variant="h5">
           Login
         </Typography>
-        <form 
-          className={classes.form}  
+        <form
+          className={classes.form}
           onSubmit={handleSubmit(onSubmit)}
           method="POST"
         >
@@ -82,6 +85,9 @@ export default function Login() {
             label="Email Address"
             variant="outlined"
             margin="normal"
+            {...register('email', {
+              pattern: /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/i,
+            })}
             required
             fullWidth
             autoComplete="email"
@@ -94,6 +100,7 @@ export default function Login() {
             label="Password"
             variant="outlined"
             margin="normal"
+            {...register('password', { required: true })}
             required
             fullWidth
             autoComplete="current-password"

@@ -8,19 +8,21 @@ export default function Welcome() {
 
   const history = useHistory();
   const dispatch = useDispatch();
+
   const { isError } = useSelector(userSelector);
+  
   useEffect(() => {
     dispatch(fetchUserBytoken({ token: localStorage.getItem('token') }));
-  }, []);
+  }, [dispatch]);
 
-  const { username, email } = useSelector(userSelector);
+  const { username } = useSelector(userSelector);
 
   useEffect(() => {
     if (isError) {
       dispatch(clearState());
       history.push('/login');
     }
-  }, [isError]);
+  }, [isError, dispatch, history]);
 
   const onLogOut = () => {
     localStorage.removeItem('token');
@@ -37,7 +39,7 @@ export default function Welcome() {
           color="primary"
           align='center'
         >
-          Welcome
+          Welcome {username}
         </Typography>
         <Button
           fullWidth

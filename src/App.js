@@ -1,6 +1,5 @@
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Users from './pages/Users';
 import Welcome from './pages/Welcome';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { PrivateRoute } from './helpers/PrivateRoute';
@@ -20,7 +19,6 @@ function App() {
             <Route exact component={Login} path="/login" />
             <Route exact component={Register} path="/register" />
             <PrivateRoute exact component={Welcome} path="/" />
-            <PrivateRoute exact component={Users} path="/users" />
           </Switch>
         </div>
       </Router>
