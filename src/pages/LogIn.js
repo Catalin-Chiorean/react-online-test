@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { Avatar, Button, Container, CssBaseline } from '@material-ui/core';
 import { TextField, Link, Grid, Typography } from '@material-ui/core';
 import LockIcon from '@material-ui/icons/Lock';
 import { makeStyles } from '@material-ui/core/styles';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import { useHistory } from 'react-router';
-import axios from 'axios';
+import { useForm } from 'react-hook-form';
+import { useSelector, useDispatch } from 'react-redux';
+import { loginUser, userSelector, clearState } from '../redux/UserSlice';
+import toast from 'react-hot-toast';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -30,38 +32,33 @@ const useStyles = makeStyles((theme) => ({
 export default function Login() {
   const classes = useStyles();
   const history = useHistory();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [emailError, setEmailError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
-  const [helperText, setHelperText] = useState('');
+  const dispatch = useDispatch();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    setEmailError(false);
-    setPasswordError(false);
-    setHelperText('')
+  const { handleSubmit } = useForm();
+  const { isSuccess, isError, errorMessage } = useSelector(
+    userSelector
+  );
+  const onSubmit = (data) => {
+    dispatch(loginUser(data));
+  };
 
-    if (email === '') {
-      setEmailError(true);
-      setHelperText('Please enter email')
+  useEffect(() => {
+    return () => {
+      dispatch(clearState());
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(errorMessage);
+      dispatch(clearState());
     }
-    if (password === '') {
-      setPasswordError(true);
-      setHelperText('Please enter password')
+
+    if (isSuccess) {
+      dispatch(clearState());
+      history.push('/');
     }
-    if (email && password) {
-      console.log(email, password);
-      axios.post('http://localhost:3001/login/', {email, password})
-      .then(res => {
-        console.log(res)
-      })
-      .then(() => history.push('/welcome'))
-      .catch(err => {
-        console.log(err)
-      })
-    }
-  }
+  }, [isError, isSuccess]);
 
   return (
     <Container component="main" maxWidth="xs">
@@ -73,32 +70,34 @@ export default function Login() {
         <Typography component="h1" variant="h5">
           Login
         </Typography>
-        <form className={classes.form} noValidate onSubmit={handleLogin}>
+        <form 
+          className={classes.form}  
+          onSubmit={handleSubmit(onSubmit)}
+          method="POST"
+        >
           <TextField
-            onChange={(e) => setEmail(e.target.value)}
+            id="email"
+            name="email"
+            type="email"
+            label="Email Address"
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            label="Email Address"
             autoComplete="email"
             autoFocus
-            error={emailError}
           />
           <TextField
-            onChange={(e) => setPassword(e.target.value)}
+            id="password"
+            name="password"
+            type="password"
+            label="Password"
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            label="Password"
-            type="password"
             autoComplete="current-password"
-            error={passwordError}
           />
-          <FormHelperText>
-            {helperText}
-          </FormHelperText>
           <Button
             type="submit"
             fullWidth

@@ -35,13 +35,14 @@ export default function Register() {
 
   const { handleSubmit } = useForm();
 
-  const { isFetching, isSuccess, isError, errorMessage } = useSelector(
+  const {isSuccess, isError, errorMessage } = useSelector(
     userSelector
   );
 
   const onSubmit = (data) => {
     dispatch(signupUser(data));
   };
+  
   useEffect(() => {
     return () => {
       dispatch(clearState());
@@ -77,6 +78,18 @@ export default function Register() {
           method="POST"
         >
           <TextField
+            id="name"
+            name="name"
+            type="name"
+            label="User name"
+            variant="outlined"
+            margin="normal"
+            autoComplete="username"
+            required
+            fullWidth
+            autoFocus
+          />
+          <TextField
             id="email"
             name="email"
             type="email"
@@ -86,7 +99,6 @@ export default function Register() {
             autoComplete="email"
             required
             fullWidth
-            autoFocus
           />
           <TextField
             id="password"
