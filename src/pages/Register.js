@@ -17,14 +17,11 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   avatar: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(2),
     backgroundColor: theme.palette.secondary.main,
   },
-  form: {
-    marginTop: theme.spacing(1),
-  },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(2, 0, 2),
   },
 }));
 
@@ -74,7 +71,6 @@ export default function Register() {
         </Typography>
         <form
           className={classes.form}
-          //noValidate
           onSubmit={handleSubmit(onSubmit)}
           method="POST"
         >
@@ -127,7 +123,7 @@ export default function Register() {
             Register
           </Button>
           <Grid item>
-            <Link href="/" variant="body2">
+            <Link href="/">
               {"Already have an account? Login"}
             </Link>
           </Grid>
