@@ -1,6 +1,6 @@
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Welcome from './pages/Welcome';
+import Start from './pages/Start';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { PrivateRoute } from './helpers/PrivateRoute';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core'
@@ -18,7 +18,7 @@ function App() {
           <Switch>
             <Route exact component={Login} path="/login" />
             <Route exact component={Register} path="/register" />
-            <PrivateRoute exact component={Welcome} path="/" />
+            <PrivateRoute exact component={Start} path="/" />
           </Switch>
         </div>
       </Router>
