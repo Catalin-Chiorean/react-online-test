@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { userSelector, fetchUserBytoken, clearState } from '../redux/UserSlice';
+import React, { useEffect, useState } from 'react';
 import { Typography, Button, Container, CssBaseline, AppBar, Toolbar, Grid } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -26,28 +24,19 @@ export default function Welcome() {
 
   const classes = useStyles();
   const history = useHistory();
-  const dispatch = useDispatch();
+  
+  const [seconds, setSeconds] = React.useState(70);
 
-  const { isError, username } = useSelector(userSelector);
-
-  useEffect(() => {
-    dispatch(fetchUserBytoken({ token: localStorage.getItem('token') }));
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (isError) {
-      dispatch(clearState());
-      history.push('/login');
+  React.useEffect(() => {
+    if (seconds > 0) {
+      setTimeout(() => setSeconds(seconds - 1), 1000);
+    } else {
+      setSeconds('BOOOOM!');
     }
-  }, [isError, dispatch, history]);
+  });
 
-  const onLogOut = () => {
-    localStorage.removeItem('token');
+  const onEndQuiz = () => {
     history.push('/login');
-  };
-
-  const onStartQuiz = () => {
-    history.push('/quiz');
   };
 
   return (
@@ -60,14 +49,14 @@ export default function Welcome() {
             variant="h5"
             color="inherit"
           >
-            Welcome {username}
+            Time left: {seconds}
           </Typography>
           <Button
             variant="contained"
             color="secondary"
-            onClick={onLogOut}
+            onClick={onEndQuiz}
           >
-            Logout
+            End quiz
           </Button>
         </Toolbar>
       </AppBar>
@@ -76,7 +65,7 @@ export default function Welcome() {
         variant="h5"
         color="inherit"
       >
-        Chose the difficulty level:
+        Quiz placeholder
       </Typography>
       <FormControl>
         <RadioGroup 
@@ -86,18 +75,17 @@ export default function Welcome() {
           //onChange={handleChange}
           defaultValue="easy"
         >
-          <FormControlLabel value="easy" control={<Radio />} label="Easy" />
-          <FormControlLabel value="medium" control={<Radio />} label="Medium" />
-          <FormControlLabel value="hard" control={<Radio />} label="Hard" />
+          <FormControlLabel value="1" control={<Radio />} label="1" />
+          <FormControlLabel value="2" control={<Radio />} label="2" />
+          <FormControlLabel value="3" control={<Radio />} label="3" />
         </RadioGroup>
         <Button 
           className={classes.button}
           type="submit" 
           variant="contained" 
           color="secondary"
-          onClick={onStartQuiz}
         >
-        Start
+        Next
         </Button>
       </FormControl>
 
