@@ -2,6 +2,8 @@
 
 Online quiz app built with React, Redux toolkit and Material UI.
 
+Demo: https://react-online-quiz.herokuapp.com/
+
 ## Available Scripts
 
 In the project directory, you can run:
