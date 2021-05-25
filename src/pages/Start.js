@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { userSelector, fetchUserBytoken, clearState } from '../redux/UserSlice';
 import { Typography, Button, Container, CssBaseline, AppBar, Toolbar, Grid } from '@material-ui/core';
@@ -22,13 +22,15 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Welcome() {
+export default function Start() {
 
   const classes = useStyles();
   const history = useHistory();
   const dispatch = useDispatch();
 
   const { isError, username } = useSelector(userSelector);
+
+  const [quizLevel, setQuizLevel] = useState("easy")
 
   useEffect(() => {
     dispatch(fetchUserBytoken({ token: localStorage.getItem('token') }));
@@ -48,6 +50,10 @@ export default function Welcome() {
 
   const onStartQuiz = () => {
     history.push('/quiz');
+  };
+
+  const handleChange = e => {
+    setQuizLevel (e.target.value);
   };
 
   return (
@@ -82,9 +88,8 @@ export default function Welcome() {
         <RadioGroup 
           aria-label="level" 
           name="level" 
-          //value={value} 
-          //onChange={handleChange}
-          defaultValue="easy"
+          onChange={handleChange}
+          defaultValue={quizLevel}
         >
           <FormControlLabel value="easy" control={<Radio />} label="Easy" />
           <FormControlLabel value="medium" control={<Radio />} label="Medium" />

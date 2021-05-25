@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Typography, Button, Container, CssBaseline, AppBar, Toolbar, Grid } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
+import Quiz from 'react-quiz-component';
+import { quiz1 } from '../data/quiz1.js';
+
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -20,14 +19,14 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Welcome() {
+export default function QuizPage() {
 
   const classes = useStyles();
   const history = useHistory();
   
-  const [seconds, setSeconds] = React.useState(70);
+  const [seconds, setSeconds] = useState(70);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (seconds > 0) {
       setTimeout(() => setSeconds(seconds - 1), 1000);
     } else {
@@ -65,30 +64,11 @@ export default function Welcome() {
         variant="h5"
         color="inherit"
       >
-        Quiz placeholder
       </Typography>
-      <FormControl>
-        <RadioGroup 
-          aria-label="level" 
-          name="level" 
-          //value={value} 
-          //onChange={handleChange}
-          defaultValue="easy"
-        >
-          <FormControlLabel value="1" control={<Radio />} label="1" />
-          <FormControlLabel value="2" control={<Radio />} label="2" />
-          <FormControlLabel value="3" control={<Radio />} label="3" />
-        </RadioGroup>
-        <Button 
-          className={classes.button}
-          type="submit" 
-          variant="contained" 
-          color="secondary"
-        >
-        Next
-        </Button>
-      </FormControl>
-
+      <Quiz 
+        quiz={quiz1}
+        ontinueTillCorrect={false}
+      />
     </Container>
   )
 }
