@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { userSelector, fetchUserBytoken, clearState } from '../redux/UserSlice';
-import { Typography, Button, Container, CssBaseline, AppBar, Toolbar, Grid } from '@material-ui/core';
+import { setLevel } from '../redux/QuizSlice';
+import { Typography, Button, Container, CssBaseline, AppBar, Toolbar } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
@@ -30,8 +31,7 @@ export default function Start() {
 
   const { isError, username } = useSelector(userSelector);
 
-  const [quizLevel, setQuizLevel] = useState("easy");
-  const [quizFile, setQuizFile] = useState("quiz");
+  const [quizLevel, setQuizLevel] = useState('easy');
 
   useEffect(() => {
     dispatch(fetchUserBytoken({ token: localStorage.getItem('token') }));
@@ -50,18 +50,12 @@ export default function Start() {
   };
 
   const onStartQuiz = () => {
-    if (quizLevel==="easy") {
-      setQuizFile("quiz1");
-    } else if (quizLevel==="medium") {
-      setQuizFile("quiz2");
-    } else {
-      setQuizFile("quiz3");
-    }
+    dispatch(setLevel(quizLevel));
     history.push('/quiz');
   };
 
   const handleChange = e => {
-    setQuizLevel (e.target.value);
+    setQuizLevel(e.target.value);
   };
 
   return (
@@ -97,7 +91,7 @@ export default function Start() {
           aria-label="level" 
           name="level" 
           onChange={handleChange}
-          defaultValue={quizLevel}
+          defaultValue='easy'
         >
           <FormControlLabel value="easy" control={<Radio />} label="Easy" />
           <FormControlLabel value="medium" control={<Radio />} label="Medium" />
@@ -113,7 +107,6 @@ export default function Start() {
         Start
         </Button>
       </FormControl>
-
     </Container>
   )
 }

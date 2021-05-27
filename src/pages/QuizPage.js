@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Typography, Button, Container, CssBaseline, AppBar, Toolbar, Grid } from '@material-ui/core';
+import { Typography, Button, Container, CssBaseline, AppBar, Toolbar } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import Quiz from 'react-quiz-component';
-import { quiz1, quiz2, quiz3 } from './data.js';
-
+import QuizControl from './QuizControl';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -31,7 +29,7 @@ export default function QuizPage() {
   });
 
   const onEndQuiz = () => {
-    history.push('/login');
+    history.push('/');
   };
 
   return (
@@ -61,10 +59,7 @@ export default function QuizPage() {
         color="inherit"
       >
       </Typography>
-      <Quiz 
-        quiz={quiz1}
-        ontinueTillCorrect={false}
-      />
+      <QuizControl/>
     </Container>
   )
 }
