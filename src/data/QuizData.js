@@ -129,28 +129,29 @@ export const quiz3 = {
   "quizSynopsis": "React questions",
   "questions": [
     {
-      "question": "React is mainly used for building ___.",
+      "question": "What are the advantages of React JS?",
       "questionType": "text",
-      "answerSelectionType": "single",
+      "answerSelectionType": "multiple",
       "answers": [
-        "Database",
-        "Connectivity",
-        "User interface",
-        "Design Platform"
+        "React can be used on client and as well as server side too",
+        "Using React increases readability and makes maintainability easier. Component, Data patterns improves readability and thus makes it easier for manitaining larger apps",
+        "React components have lifecycle events that fall into State/Property Updates",
+        "React can be used with any other framework (Backbone.js, Angular.js) as it is only a view layer"
       ],
-      "correctAnswer": "3"
+      "correctAnswer": [1, 2, 4],
     },
     {
-      "question": "Which is the right way of accessing a function fetch() from an h1 element in JSX?",
+      "question": "How can you access the state of a component from inside of a member function?",
       "questionType": "text",
+      "questionPic": "https://dummyimage.com/600x400/000/fff&text=X", // if you need to display Picture in Question
       "answerSelectionType": "single",
       "answers": [
-        "<h1>{fetch()}</h1>",
-        "<h1>${fetch()}</h1>",
-        "<h1>{fetch}</h1>",
-        "<h1>${fetch}</h1>"
+        "this.getState()",
+        "this.prototype.stateValue",
+        "this.state",
+        "this.values"
       ],
-      "correctAnswer": "4"
+      "correctAnswer": "3",
     },
     {
       "question": "What is state in React?",
