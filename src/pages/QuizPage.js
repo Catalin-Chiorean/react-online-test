@@ -3,7 +3,7 @@ import { Typography, Button, Container, CssBaseline, AppBar, Toolbar, Grid } fro
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Quiz from 'react-quiz-component';
-import { quiz1 } from '../data/quiz1.js';
+import { quiz1, quiz2, quiz3 } from './data.js';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -24,14 +24,10 @@ export default function QuizPage() {
   const classes = useStyles();
   const history = useHistory();
   
-  const [seconds, setSeconds] = useState(70);
+  const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-    if (seconds > 0) {
-      setTimeout(() => setSeconds(seconds - 1), 1000);
-    } else {
-      setSeconds('BOOOOM!');
-    }
+      setTimeout(() => setSeconds(seconds + 1), 1000);
   });
 
   const onEndQuiz = () => {
@@ -48,7 +44,7 @@ export default function QuizPage() {
             variant="h5"
             color="inherit"
           >
-            Time left: {seconds}
+            Time spent: {seconds} seconds
           </Typography>
           <Button
             variant="contained"
