@@ -21,11 +21,11 @@ export default function QuizPage() {
 
   const classes = useStyles();
   const history = useHistory();
-  
+
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-      setTimeout(() => setSeconds(seconds + 1), 1000);
+    setTimeout(() => setSeconds(seconds + 1), 1000);
   });
 
   const onEndQuiz = () => {
@@ -59,7 +59,7 @@ export default function QuizPage() {
         color="inherit"
       >
       </Typography>
-      <QuizControl/>
+      <QuizControl />
     </Container>
   )
 }

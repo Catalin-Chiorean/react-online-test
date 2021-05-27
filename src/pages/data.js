@@ -1,4 +1,4 @@
-export const quiz1 =  {
+export const quiz1 = {
   "quizTitle": "Demo 1",
   "quizSynopsis": "HTML questions",
   "questions": [
@@ -35,7 +35,7 @@ export const quiz1 =  {
         "<break>"
       ],
       "correctAnswer": "1"
-    },    {
+    }, {
       "question": "How can you make a numbered list?",
       "questionType": "text",
       "answerSelectionType": "single",
@@ -46,7 +46,7 @@ export const quiz1 =  {
         "<dl>"
       ],
       "correctAnswer": "3"
-    },    {
+    }, {
       "question": "Which HTML attribute specifies an alternate text for an image, if the image cannot be displayed?",
       "questionType": "text",
       "answerSelectionType": "single",
@@ -59,9 +59,9 @@ export const quiz1 =  {
       "correctAnswer": "1"
     }
   ]
-} 
+}
 
-export const quiz2 =  {
+export const quiz2 = {
   "quizTitle": "Demo 2",
   "quizSynopsis": "JavaScript questions",
   "questions": [
@@ -99,7 +99,7 @@ export const quiz2 =  {
         "if i == 5 then"
       ],
       "correctAnswer": "2"
-    },    {
+    }, {
       "question": "How does a FOR loop start?",
       "questionType": "text",
       "answerSelectionType": "single",
@@ -110,7 +110,7 @@ export const quiz2 =  {
         "for (i <= 5; i++)"
       ],
       "correctAnswer": "1"
-    },    {
+    }, {
       "question": "JavaScript is the same as Java.",
       "questionType": "text",
       "answerSelectionType": "single",
@@ -121,9 +121,9 @@ export const quiz2 =  {
       "correctAnswer": "1"
     }
   ]
-} 
+}
 
-export const quiz3 =  {
+export const quiz3 = {
   "quizTitle": "Demo 3",
   "quizSynopsis": "React questions",
   "questions": [
@@ -160,7 +160,7 @@ export const quiz3 =  {
         "An internal data store (object) of a component."
       ],
       "correctAnswer": "2"
-    },    {
+    }, {
       "question": "What is used to pass data to a component from outside?",
       "questionType": "text",
       "answerSelectionType": "single",
@@ -171,7 +171,7 @@ export const quiz3 =  {
         "props"
       ],
       "correctAnswer": "4"
-    },    {
+    }, {
       "question": "What are the two ways that data gets handled in React?",
       "questionType": "text",
       "answerSelectionType": "single",
@@ -182,4 +182,4 @@ export const quiz3 =  {
       "correctAnswer": "1"
     }
   ]
-} 
+}

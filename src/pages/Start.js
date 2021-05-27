@@ -87,9 +87,9 @@ export default function Start() {
         Chose the difficulty level:
       </Typography>
       <FormControl>
-        <RadioGroup 
-          aria-label="level" 
-          name="level" 
+        <RadioGroup
+          aria-label="level"
+          name="level"
           onChange={handleChange}
           defaultValue='easy'
         >
@@ -97,14 +97,14 @@ export default function Start() {
           <FormControlLabel value="medium" control={<Radio />} label="Medium" />
           <FormControlLabel value="hard" control={<Radio />} label="Hard" />
         </RadioGroup>
-        <Button 
+        <Button
           className={classes.button}
-          type="submit" 
-          variant="contained" 
+          type="submit"
+          variant="contained"
           color="secondary"
           onClick={onStartQuiz}
         >
-        Start
+          Start
         </Button>
       </FormControl>
     </Container>
