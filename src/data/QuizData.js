@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const quiz1 = {
   "quizTitle": "Demo 1",
   "quizSynopsis": "HTML questions",
