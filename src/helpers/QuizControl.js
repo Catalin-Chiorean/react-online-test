@@ -9,7 +9,12 @@ export default function QuizControl() {
   const { level } = useSelector(quizSelector);
 
   const onCompleteAction = (obj) => {
-    console.log(obj);
+    fetch('http://localhost:5000/results', {
+      method: 'POST',
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(obj)
+ 
+    })
   }
 
   if (level === "easy") {
