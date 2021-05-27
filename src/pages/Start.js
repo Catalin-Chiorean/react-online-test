@@ -30,7 +30,8 @@ export default function Start() {
 
   const { isError, username } = useSelector(userSelector);
 
-  const [quizLevel, setQuizLevel] = useState("easy")
+  const [quizLevel, setQuizLevel] = useState("easy");
+  const [quizFile, setQuizFile] = useState("quiz");
 
   useEffect(() => {
     dispatch(fetchUserBytoken({ token: localStorage.getItem('token') }));
@@ -49,6 +50,13 @@ export default function Start() {
   };
 
   const onStartQuiz = () => {
+    if (quizLevel==="easy") {
+      setQuizFile("quiz1");
+    } else if (quizLevel==="medium") {
+      setQuizFile("quiz2");
+    } else {
+      setQuizFile("quiz3");
+    }
     history.push('/quiz');
   };
 
