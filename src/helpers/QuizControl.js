@@ -1,6 +1,6 @@
 import React from 'react';
 import Quiz from 'react-quiz-component';
-import { quiz1, quiz2, quiz3 } from './data.js';
+import { quiz1, quiz2, quiz3 } from '../data/QuizData';
 import { useSelector } from 'react-redux';
 import { quizSelector } from '../redux/QuizSlice';
 
