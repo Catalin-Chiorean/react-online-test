@@ -12,7 +12,8 @@ export const quiz1 = {
         "Hyperlinks and Text Markup Language",
         "Hyper Text Markup Language"
       ],
-      "correctAnswer": "3"
+      "correctAnswer": "3",
+      "point": "20"
     },
     {
       "question": "Choose the correct HTML element for the largest heading:",
@@ -24,7 +25,8 @@ export const quiz1 = {
         "<h1> ",
         "<h6>"
       ],
-      "correctAnswer": "3"
+      "correctAnswer": "3",
+      "point": "20"
     },
     {
       "question": "What is the correct HTML element for inserting a line break?",
@@ -35,7 +37,8 @@ export const quiz1 = {
         "<lb>",
         "<break>"
       ],
-      "correctAnswer": "1"
+      "correctAnswer": "1",
+      "point": "20"
     }, {
       "question": "How can you make a numbered list?",
       "questionType": "text",
@@ -46,7 +49,8 @@ export const quiz1 = {
         "<ol> ",
         "<dl>"
       ],
-      "correctAnswer": "3"
+      "correctAnswer": "3",
+      "point": "20"
     }, {
       "question": "Which HTML attribute specifies an alternate text for an image, if the image cannot be displayed?",
       "questionType": "text",
@@ -57,7 +61,8 @@ export const quiz1 = {
         "src",
         "longdesc"
       ],
-      "correctAnswer": "1"
+      "correctAnswer": "1",
+      "point": "20"
     }
   ]
 }
@@ -76,7 +81,8 @@ export const quiz2 = {
         "<scripting>",
         "<script>"
       ],
-      "correctAnswer": "4"
+      "correctAnswer": "4",
+      "point": "20"
     },
     {
       "question": "How do you create a function in JavaScript?",
@@ -87,7 +93,8 @@ export const quiz2 = {
         "function = myFunction()",
         "function myFunction()"
       ],
-      "correctAnswer": "3"
+      "correctAnswer": "3",
+      "point": "20"
     },
     {
       "question": "How to write an IF statement in JavaScript?",
@@ -99,7 +106,8 @@ export const quiz2 = {
         "if i = 5 then",
         "if i == 5 then"
       ],
-      "correctAnswer": "2"
+      "correctAnswer": "2",
+      "point": "20"
     }, {
       "question": "How does a FOR loop start?",
       "questionType": "text",
@@ -110,7 +118,8 @@ export const quiz2 = {
         "for (i = 0; i <= 5)",
         "for (i <= 5; i++)"
       ],
-      "correctAnswer": "1"
+      "correctAnswer": "1",
+      "point": "20"
     }, {
       "question": "JavaScript is the same as Java.",
       "questionType": "text",
@@ -119,7 +128,8 @@ export const quiz2 = {
         "False",
         "True"
       ],
-      "correctAnswer": "1"
+      "correctAnswer": "1",
+      "point": "20"
     }
   ]
 }
@@ -139,6 +149,7 @@ export const quiz3 = {
         "React can be used with any other framework (Backbone.js, Angular.js) as it is only a view layer"
       ],
       "correctAnswer": [1, 2, 4],
+      "point": "20"
     },
     {
       "question": "How can you access the state of a component from inside of a member function?",
@@ -152,6 +163,7 @@ export const quiz3 = {
         "this.values"
       ],
       "correctAnswer": "3",
+      "point": "20"
     },
     {
       "question": "What is state in React?",
@@ -161,7 +173,8 @@ export const quiz3 = {
         "A persistant storage.",
         "An internal data store (object) of a component."
       ],
-      "correctAnswer": "2"
+      "correctAnswer": "2",
+      "point": "20"
     }, {
       "question": "What is used to pass data to a component from outside?",
       "questionType": "text",
@@ -172,7 +185,8 @@ export const quiz3 = {
         "PropTypes",
         "props"
       ],
-      "correctAnswer": "4"
+      "correctAnswer": "4",
+      "point": "20"
     }, {
       "question": "What are the two ways that data gets handled in React?",
       "questionType": "text",
@@ -181,7 +195,73 @@ export const quiz3 = {
         "state & props",
         "services & components"
       ],
-      "correctAnswer": "1"
+      "correctAnswer": "1",
+      "point": "20"
     }
+  ]
+}
+
+export const meme = {
+  "quizTitle": "Memes demo quiz",
+  "quizSynopsis": "Dank memes incoming",
+  "questions": [
+    {
+      "question": "Who is this very handsome dog?",
+      "questionType": "text",
+      "questionPic": "https://www.beano.com/wp-content/uploads/legacy/68757_blob.png?resize=768%2C440&quality=76&strip=all",
+      "answerSelectionType": "single",
+      "answers": [
+        "Dage",
+        "Dogg",
+        "Doggo",
+        "Doge"
+      ],
+      "correctAnswer": "4",
+      "messageForCorrectAnswer": "Such answer, much wow",
+      "messageForIncorrectAnswer": "Wow, what are you doing...",
+      "point": "25"
+    },
+    {
+      "question": "What is this woman shouting at?",
+      "questionType": "text",
+      "questionPic": "https://www.beano.com/wp-content/uploads/legacy/68758_blob.png?resize=768%2C432&quality=76&strip=all",
+      "answerSelectionType": "single",
+      "answers": [
+        "A waiter",
+        "John Cena",
+        "Spongebob",
+        "A cat"
+      ],
+      "correctAnswer": "4",
+      "point": "25"
+    },
+    {
+      "question": "Complete this guy's name:Hide the Pain ___",
+      "questionType": "text",
+      "questionPic": "https://www.beano.com/wp-content/uploads/legacy/68761_587.jpg?quality=76&strip=all",
+      "answerSelectionType": "single",
+      "answers": [
+        "Hugo",
+        "Joe",
+        "Bernard",
+        "Harold"
+      ],
+      "correctAnswer": "4",
+      "point": "25"
+    },
+    {
+      "question": "What's up with this cat?",
+      "questionType": "text",
+      "questionPic": "https://www.beano.com/wp-content/uploads/legacy/68762_grump.jpg?resize=768%2C432&quality=76&strip=all",
+      "answerSelectionType": "single",
+      "answers": [
+        "It's Grumpy",
+        "It's Moody",
+        "It's Worried",
+        "It's Angry"
+      ],
+      "correctAnswer": "4",
+      "point": "25"
+    },
   ]
 }

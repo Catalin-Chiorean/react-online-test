@@ -31,7 +31,7 @@ export default function Start() {
 
   const { isError, username } = useSelector(userSelector);
 
-  const [quizLevel, setQuizLevel] = useState('easy');
+  const [quizLevel, setQuizLevel] = useState('meme');
 
   useEffect(() => {
     dispatch(fetchUserBytoken({ token: localStorage.getItem('token') }));
@@ -91,8 +91,9 @@ export default function Start() {
           aria-label="level"
           name="level"
           onChange={handleChange}
-          defaultValue='easy'
+          defaultValue='meme'
         >
+          <FormControlLabel value="meme" control={<Radio />} label="Memes" />
           <FormControlLabel value="easy" control={<Radio />} label="Easy" />
           <FormControlLabel value="medium" control={<Radio />} label="Medium" />
           <FormControlLabel value="hard" control={<Radio />} label="Hard" />
