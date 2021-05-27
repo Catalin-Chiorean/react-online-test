@@ -44,10 +44,6 @@ export default function Start() {
     }
   }, [isError, dispatch, history]);
 
-  const onLeaderBoard = () => {
-    //history.push('/top');
-  };
-
   const onLogOut = () => {
     localStorage.removeItem('token');
     history.push('/login');
@@ -76,16 +72,7 @@ export default function Start() {
           </Typography>
           <Button
             variant="contained"
-            color="default"
-            onClick={onLeaderBoard}
-          >
-            Leader board
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button
-            variant="contained"
             color="secondary"
-            margin
             onClick={onLogOut}
           >
             Logout
