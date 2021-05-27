@@ -1,98 +1,62 @@
 export const quiz1 =  {
   "quizTitle": "Demo 1",
-  "quizSynopsis": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim",
+  "quizSynopsis": "5 HTML questions",
   "questions": [
     {
-      "question": "How can you access the state of a component from inside of a member function?",
-      "questionType": "text",
-      "questionPic": "https://dummyimage.com/600x400/000/fff&text=X", // if you need to display Picture in Question
-      "answerSelectionType": "single",
-      "answers": [
-        "this.getState()",
-        "this.prototype.stateValue",
-        "this.state",
-        "this.values"
-      ],
-      "correctAnswer": "3",
-      "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
-      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "point": "20"
-    },
-    {
-      "question": "ReactJS is developed by _____?",
+      "question": "What does HTML stand for?",
       "questionType": "text",
       "answerSelectionType": "single",
       "answers": [
-        "Google Engineers",
-        "Facebook Engineers"
+        "Home Tool Markup Language",
+        "Hyperlinks and Text Markup Language",
+        "Hyper Text Markup Language"
       ],
-      "correctAnswer": "2",
-      "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
-      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "point": "20"
+      "correctAnswer": "3"
     },
     {
-      "question": "ReactJS is an MVC based framework?",
+      "question": "Choose the correct HTML element for the largest heading:",
       "questionType": "text",
       "answerSelectionType": "single",
       "answers": [
-        "True",
-        "False"
+        "<heading>",
+        "<head>",
+        "<h1> ",
+        "<h6>"
       ],
-      "correctAnswer": "2",
-      "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
-      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "point": "10"
+      "correctAnswer": "3"
     },
     {
-      "question": "Which of the following concepts is/are key to ReactJS?",
+      "question": "What is the correct HTML element for inserting a line break?",
       "questionType": "text",
       "answerSelectionType": "single",
       "answers": [
-        "Component-oriented design",
-        "Event delegation model",
-        "Both of the above",
+        "<br>",
+        "<lb>",
+        "<break>"
       ],
-      "correctAnswer": "3",
-      "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
-      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "point": "30"
-    },
-    {
-      "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
-      "questionType": "photo",
+      "correctAnswer": "1"
+    },    {
+      "question": "How can you make a numbered list?",
+      "questionType": "text",
       "answerSelectionType": "single",
       "answers": [
-        "https://dummyimage.com/600x400/000/fff&text=A",
-        "https://dummyimage.com/600x400/000/fff&text=B",
-        "https://dummyimage.com/600x400/000/fff&text=C",
-        "https://dummyimage.com/600x400/000/fff&text=D"
+        "<list>",
+        "<ul>",
+        "<ol> ",
+        "<dl>"
       ],
-      "correctAnswer": "1",
-      "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
-      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "point": "20"
-    },
-    {
-      "question": "What are the advantages of React JS?",
+      "correctAnswer": "3"
+    },    {
+      "question": "Which HTML attribute specifies an alternate text for an image, if the image cannot be displayed?",
       "questionType": "text",
-      "answerSelectionType": "multiple",
+      "answerSelectionType": "single",
       "answers": [
-        "React can be used on client and as well as server side too",
-        "Using React increases readability and makes maintainability easier. Component, Data patterns improves readability and thus makes it easier for manitaining larger apps",
-        "React components have lifecycle events that fall into State/Property Updates",
-        "React can be used with any other framework (Backbone.js, Angular.js) as it is only a view layer"
+        "alt",
+        "title",
+        "src",
+        "longdesc"
       ],
-      "correctAnswer": [1, 2, 4],
-      "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
-      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "point": "20"
-    },
+      "correctAnswer": "1"
+    }
   ]
 } 

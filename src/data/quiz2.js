@@ -1,98 +1,61 @@
 export const quiz2 =  {
   "quizTitle": "Demo 2",
-  "quizSynopsis": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim",
+  "quizSynopsis": "5 JavaScript questions",
   "questions": [
     {
-      "question": "How can you access the state of a component from inside of a member function?",
-      "questionType": "text",
-      "questionPic": "https://dummyimage.com/600x400/000/fff&text=X", // if you need to display Picture in Question
-      "answerSelectionType": "single",
-      "answers": [
-        "this.getState()",
-        "this.prototype.stateValue",
-        "this.state",
-        "this.values"
-      ],
-      "correctAnswer": "3",
-      "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
-      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "point": "20"
-    },
-    {
-      "question": "ReactJS is developed by _____?",
+      "question": "Inside which HTML element do we put the JavaScript?",
       "questionType": "text",
       "answerSelectionType": "single",
       "answers": [
-        "Google Engineers",
-        "Facebook Engineers"
+        "<javascript>",
+        "<js>",
+        "<scripting>",
+        "<script>"
       ],
-      "correctAnswer": "2",
-      "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
-      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "point": "20"
+      "correctAnswer": "4"
     },
     {
-      "question": "ReactJS is an MVC based framework?",
+      "question": "How do you create a function in JavaScript?",
       "questionType": "text",
       "answerSelectionType": "single",
       "answers": [
-        "True",
-        "False"
+        "function:myFunction()",
+        "function = myFunction()",
+        "function myFunction()"
       ],
-      "correctAnswer": "2",
-      "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
-      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "point": "10"
+      "correctAnswer": "3"
     },
     {
-      "question": "Which of the following concepts is/are key to ReactJS?",
+      "question": "How to write an IF statement in JavaScript?",
       "questionType": "text",
       "answerSelectionType": "single",
       "answers": [
-        "Component-oriented design",
-        "Event delegation model",
-        "Both of the above",
+        "if i = 5",
+        "if (i == 5)",
+        "if i = 5 then",
+        "if i == 5 then"
       ],
-      "correctAnswer": "3",
-      "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
-      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "point": "30"
-    },
-    {
-      "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
-      "questionType": "photo",
+      "correctAnswer": "2"
+    },    {
+      "question": "How does a FOR loop start?",
+      "questionType": "text",
       "answerSelectionType": "single",
       "answers": [
-        "https://dummyimage.com/600x400/000/fff&text=A",
-        "https://dummyimage.com/600x400/000/fff&text=B",
-        "https://dummyimage.com/600x400/000/fff&text=C",
-        "https://dummyimage.com/600x400/000/fff&text=D"
+        "for (i = 0; i <= 5; i++) ",
+        "for i = 1 to 5",
+        "for (i = 0; i <= 5)",
+        "for (i <= 5; i++)"
       ],
-      "correctAnswer": "1",
-      "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
-      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "point": "20"
-    },
-    {
-      "question": "What are the advantages of React JS?",
+      "correctAnswer": "1"
+    },    {
+      "question": "JavaScript is the same as Java.",
       "questionType": "text",
-      "answerSelectionType": "multiple",
+      "answerSelectionType": "single",
       "answers": [
-        "React can be used on client and as well as server side too",
-        "Using React increases readability and makes maintainability easier. Component, Data patterns improves readability and thus makes it easier for manitaining larger apps",
-        "React components have lifecycle events that fall into State/Property Updates",
-        "React can be used with any other framework (Backbone.js, Angular.js) as it is only a view layer"
+        "False",
+        "True"
       ],
-      "correctAnswer": [1, 2, 4],
-      "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
-      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "point": "20"
-    },
+      "correctAnswer": "1"
+    }
   ]
 } 
