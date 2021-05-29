@@ -1,0 +1,32 @@
+{
+  "results": [
+    {
+      "username": "cata",
+      "email": "c@c.com",
+      "correctAnswers": 0,
+      "totalPoints": 0,
+      "id": 1
+    },
+    {
+      "username": "cata",
+      "email": "c@c.com",
+      "correctAnswers": 4,
+      "totalPoints": 100,
+      "id": 2
+    },
+    {
+      "username": "cata",
+      "email": "c@c.com",
+      "correctAnswers": 0,
+      "totalPoints": 0,
+      "id": 3
+    },
+    {
+      "username": "cata",
+      "email": "c@c.com",
+      "correctAnswers": 4,
+      "totalPoints": 100,
+      "id": 4
+    }
+  ]
+}

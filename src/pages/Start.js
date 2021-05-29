@@ -54,6 +54,12 @@ export default function Start() {
     history.push('/quiz');
   };
 
+  const onLeaderBoard = () => {
+    //history.push('/top');
+    window.open("http://localhost:5000/results");
+  };
+
+
   const handleChange = e => {
     setQuizLevel(e.target.value);
   };
@@ -70,6 +76,14 @@ export default function Start() {
           >
             Welcome {username}
           </Typography>
+          <Button
+            variant="contained"
+            color="default"
+            onClick={onLeaderBoard}
+          >
+            Leader board (WIP)
+          </Button>
+          &nbsp;&nbsp;&nbsp;
           <Button
             variant="contained"
             color="secondary"

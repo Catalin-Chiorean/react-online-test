@@ -3,13 +3,25 @@ import Quiz from 'react-quiz-component';
 import { quiz1, quiz2, quiz3, meme } from '../data/QuizData';
 import { useSelector } from 'react-redux';
 import { quizSelector } from '../redux/QuizSlice';
+import { userSelector} from '../redux/UserSlice';
+import axios from 'axios';
 
 export default function QuizControl() {
 
   const { level } = useSelector(quizSelector);
+  const { username, email } = useSelector(userSelector);
 
   const onCompleteAction = (obj) => {
-    console.log(obj);
+    //console.log(obj);
+    const correctAnswers = obj.numberOfCorrectAnswers;
+    const totalPoints = obj.totalPoints;
+    axios.post('http://localhost:5000/results', {
+      username, email, correctAnswers, totalPoints
+    }).then(resp => {
+      console.log(resp.data);
+    }).catch(error => {
+      console.log(error);
+    });
   }
 
   if (level === "easy") {
