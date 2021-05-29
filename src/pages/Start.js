@@ -55,8 +55,8 @@ export default function Start() {
   };
 
   const onLeaderBoard = () => {
-    //history.push('/top');
-    window.open("http://localhost:5000/results");
+    history.push('/top');
+    //window.open("http://localhost:5000/results");
   };
 
 
