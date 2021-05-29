@@ -23,10 +23,15 @@ export default function QuizPage() {
   const history = useHistory();
 
   const [seconds, setSeconds] = useState(0);
+  const [minutes, setMinutes] = useState(0);
 
   useEffect(() => {
+    if(seconds===60) {
+      setSeconds(0);
+      setMinutes(minutes + 1);
+    }
     setTimeout(() => setSeconds(seconds + 1), 1000);
-  });
+  },[minutes, seconds]);
 
   const onEndQuiz = () => {
     history.push('/');
@@ -42,7 +47,7 @@ export default function QuizPage() {
             variant="h5"
             color="inherit"
           >
-            Time spent: {seconds} seconds
+            Time spent: {minutes} : {seconds}
           </Typography>
           <Button
             variant="contained"
@@ -59,7 +64,7 @@ export default function QuizPage() {
         color="inherit"
       >
       </Typography>
-      <QuizControl />
+      <QuizControl minutes={minutes} seconds={seconds} />
     </Container>
   )
 }

@@ -6,7 +6,7 @@ import { quizSelector } from '../redux/QuizSlice';
 import { userSelector} from '../redux/UserSlice';
 import axios from 'axios';
 
-export default function QuizControl() {
+export default function QuizControl(props) {
 
   const { level } = useSelector(quizSelector);
   const { username, email } = useSelector(userSelector);
@@ -15,8 +15,9 @@ export default function QuizControl() {
     //console.log(obj);
     const correctAnswers = obj.numberOfCorrectAnswers;
     const totalPoints = obj.totalPoints;
+    const time = props.minutes+":"+props.seconds;
     axios.post('http://localhost:5000/results', {
-      username, email, correctAnswers, totalPoints
+      username, email, correctAnswers, totalPoints, time
     }).then(resp => {
       console.log(resp.data);
     }).catch(error => {
